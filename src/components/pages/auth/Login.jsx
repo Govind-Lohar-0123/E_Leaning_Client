@@ -9,7 +9,7 @@ import { context } from '../../../ContextApi';
 import { userLogin } from './userApi';
 import { addEmailPassToCookie, getCookie } from './cookieAction.js';
 import { setUser } from './userAction.js';
-
+import { url as urlPath } from '../partials/data.js';
 import sendEmail from '../emailjs/email.js';
 import { useAuth0 } from '@auth0/auth0-react';
 import { isValidEmail } from './regularExp.js';
@@ -36,7 +36,7 @@ let cookiePass = getCookie("password");
 let options = {
     to: "govindlohar3210@gmail.com",
     subject: "Welcome to reset your password",
-    msg: "<p>Please click on the link to reset you password link: http://localhost:3000/forget-password</p>"
+    msg: `<p>Please click on the link to reset you password link: ${urlPath}/forget-password</p>`
 }
 export default function Login() {
     //Third Party api

@@ -1,4 +1,4 @@
-export let url = "http://localhost:8000";
+export let url = "https://e-learning-server-nz5s.onrender.com";
 
 
 export const list1 = [

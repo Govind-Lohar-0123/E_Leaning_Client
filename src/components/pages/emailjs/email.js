@@ -1,24 +1,24 @@
 
 import emailjs from "@emailjs/browser"
 import axios from "axios";
+import { url as urlPath } from "../partials/data";
 
 
+export default async function sendEmail(options, setResult) {
 
-export default async function sendEmail(options,setResult) {
- 
   try {
     let result = await axios({
       method: "post",
-      url: "http://localhost:8000/send-email",
+      url: `${urlPath}/send-email`,
       data: { options }
 
     })
-    
+
   }
   catch (err) {
-   return 
+    return
 
-    
+
   }
 }
 

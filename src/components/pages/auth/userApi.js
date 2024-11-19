@@ -3,7 +3,7 @@ import { setUser } from "./userAction";
 import { getToken, setToken } from "./tokenAction";
 import { isValidPassword, isValidText } from "./regularExp";
 import logOut from "./logout";
-
+import { url as urlPath } from "../partials/data";
 export async function userRegister(user_data, setResult) {
 
     let { name, email, password, confirmPassword } = user_data;
@@ -18,21 +18,14 @@ export async function userRegister(user_data, setResult) {
         setTimeout(() => setResult({ type: false, msg: "" }), 5000);
         return;
     }
-    // if (isValidText(name) == false) {
-    //     setResult({ type: true, msg: "Name type is not Valid" });
-    //     return;
-    // }
-    // if (isValidPassword(password) == false) {
-    //     setResult({ type: true, msg: "Password type is not Valid" });
-    //     return;
-    // }
+    
 
 
 
     try {
         let { status, data } = await axios({
             method: "post",
-            url: "http://localhost:8000/register",
+            url: `${urlPath}/register`,
             data: { user_data: { email, password, name } },
 
 
@@ -66,8 +59,8 @@ export async function userLogin(user_data, setResult) {
     try {
         let { status, data } = await axios({
             method: "post",
-            url: "http://localhost:8000/login",
-            data: { user_data },
+            url: `${urlPath}/login`,
+           data: { user_data },
 
         })
 
@@ -110,7 +103,7 @@ export async function changeUserPassword(user_data, setResult) {
         let token = getToken();
         let { status, data } = await axios({
             method: "put",
-            url: "http://localhost:8000/update",
+            url: `${urlPath}/update`,            
             data: { user_data },
             headers: {
                 'Authorization': 'Bearer ' + token
@@ -153,7 +146,7 @@ export async function userForgetPassword(user_data, setResult) {
     try {
         let { status, data } = await axios({
             method: "post",
-            url: "http://localhost:8000/forget-password",
+            url: `${urlPath}/forget-password`,
             data: { user_data },
 
         })
@@ -177,7 +170,7 @@ export async function deleteAccount(email) {
     try {
         let { status, data } = await axios({
             method: "delete",
-            url: "http://localhost:8000/delete-account",
+            url: `${urlPath}/delete-account`,
             data: { email },
 
         })
