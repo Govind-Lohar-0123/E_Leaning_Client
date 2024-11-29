@@ -6,13 +6,14 @@ import CardMedia from '@mui/material/CardMedia';
 import { Typography, Link, Box, Button } from '@mui/material';
 import { Link as routerLink } from "react-router-dom"
 
-import styled from '@emotion/styled';
+import { styled } from '@mui/material';
 const CardStyle = styled(Card)(({ theme }) => ({
     ":hover": {
 
         boxShadow: "2px 2px 20px 10px #DFE1E5",
         transform: "scale(1.1)"
     }
+
 
 }))
 
@@ -28,9 +29,9 @@ export default function CourseCard({ crs }) {
             <CardStyle className="p-2">
                 <CardMedia
                     component="img"
-                    alt="green iguana"
+                    alt="No Img"
                     height="140"
-                    style={{ width: "100%" }}
+                    style={{ width: "100%",objectFit:"contain" }}
                     image={`${process.env.PUBLIC_URL}/img/${crs.crs_img}`}
                 />
                 <CardContent>
