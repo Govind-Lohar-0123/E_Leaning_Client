@@ -3,7 +3,7 @@ import { useState } from 'react';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import styled from '@emotion/styled';
+import { styled } from '@mui/material';
 import Modal from '@mui/material/Modal';
 import { context } from '../../../ContextApi';
 import { userRegister } from './userApi';

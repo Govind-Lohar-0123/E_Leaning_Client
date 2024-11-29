@@ -47,12 +47,7 @@ const LeftComponent = styled(Toolbar)(({ theme }) => ({
 
 }))
 const Wrapper = styled(Toolbar)(({ theme }) => ({
-    
-
-        
-       
-        
-        position: "relative"
+position: "relative"
     
 }))
 const RightComponent = styled(Toolbar)(({ theme }) => ({
