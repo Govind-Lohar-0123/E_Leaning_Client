@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Link } from '@mui/material';
+import { Link, styled } from '@mui/material';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
@@ -14,11 +14,15 @@ const style = {
     transform: 'translate(-50%, -50%)',
     width: 500,
     bgcolor: 'background.paper',
-    border: '2px solid #000',
+   
     boxShadow: 24,
     p: 4,
 };
-
+const Component=styled(Box)(({theme})=>({
+    [theme.breakpoints.down("md")]:{
+        width:"85%"
+    }
+}))
 
 export default function ChangePassword() {
 
@@ -45,7 +49,7 @@ export default function ChangePassword() {
 
 
 
-                        <Box sx={style} className="p-4">
+                        <Component sx={style} className="p-4">
                             {(result.type == true) ? <div className="alert alert-primary" role="alert">
                                 {result.msg}
                             </div> : ""}
@@ -79,7 +83,7 @@ export default function ChangePassword() {
                                     <Button variant='contained' onClick={changePassHandle} className="mt-3  btn-primary text-bold w-50">Change Password</Button>
                                 </Box>
                             </form>
-                        </Box>
+                        </Component>
                         : <></>
                 }
 

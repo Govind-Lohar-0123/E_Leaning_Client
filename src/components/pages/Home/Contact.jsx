@@ -2,6 +2,7 @@ import { Box, Typography, Grid, TextField, styled, Button } from "@mui/material"
 import { Textarea } from "@mui/joy";
 import { useState } from "react";
 import sendEmail from "../emailjs/email";
+import { isValidEmail } from "../auth/regularExp";
 
 
 const LeftComponent = styled(Box)(({ theme }) => ({
@@ -26,6 +27,9 @@ export default function Contact() {
             setResult({ type: true, msg: "Please Fill All Feilds..." })
 
         }
+        else if(isValidEmail(contact.to_email)==false){
+            setResult({ type: true, msg: "Email Type is Invalid..." })
+        }
         else {
             let options = {
                 subject: contact.subject,
@@ -34,10 +38,14 @@ export default function Contact() {
 
             }
             sendEmail(options);
-            setResult({ type: true, msg: "We will reach you at " + contact.to_email + " after some time" })
+            setResult({ type: true, msg: "Please Check your..." })
+            options.to=contact.to_email;
+            options.msg="We will solve your problem as possible as we can do... "
+            sendEmail(options);
+            setContact({subject:"",msg:"",to_email:""})
 
         }
-        setTimeout(() => setResult({ type: false, msg: "" }), 5000)
+        setTimeout(() => setResult({ type: false, msg: "" }), 3000)
     }
     return (
         <>

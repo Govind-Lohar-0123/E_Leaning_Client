@@ -9,7 +9,7 @@ import { context } from '../../../ContextApi';
 import { userLogin } from './userApi';
 import { addEmailPassToCookie, getCookie } from './cookieAction.js';
 import { setUser } from './userAction.js';
-import { url as urlPath } from '../partials/data.js';
+import { clientUrl, url as urlPath } from '../partials/data.js';
 import sendEmail from '../emailjs/email.js';
 import { useAuth0 } from '@auth0/auth0-react';
 import { isValidEmail } from './regularExp.js';
@@ -36,8 +36,13 @@ let cookiePass = getCookie("password");
 let options = {
     to: "govindlohar3210@gmail.com",
     subject: "Welcome to reset your password",
-    msg: `<p>Please click on the link to reset you password link: ${urlPath}/forget-password</p>`
+    msg: `<p>Please click on the link to reset you password link: ${clientUrl}/forget-password</p>`
 }
+const Component=styled(Box)(({theme})=>({
+    [theme.breakpoints.down("md")]:{
+        width:"85%"
+    }
+}))
 export default function Login() {
     //Third Party api
     let { user, loginWithRedirect } = useAuth0();
@@ -102,7 +107,7 @@ export default function Login() {
                 {
                     (openLogin == false) ?
 
-                        <Box sx={style} className="p-4">
+                        <Component sx={style} className="p-4">
                             {(result.type == true) ? <div className="alert alert-primary" role="alert">
                                 {result.msg}
                             </div> : ""}
@@ -127,9 +132,9 @@ export default function Login() {
                                 {/* <Button onClick={() => loginWithRedirect()} className=" text-center mx-auto my-2 mx-auto d-block bg-danger" variant='contained'>Login With Redirect</Button> */}
                                 <Button variant='contained' onClick={loginHandle} className="mt-3 mx-auto d-block text-bold w-50">Sign Up</Button>
                             </FormStyle>
-                        </Box>
+                        </Component>
                         :
-                        <Box sx={style} className="p-4">
+                        <Component sx={style} className="p-4">
                             {(result.type == true) ? <div className="alert alert-primary" role="alert">
                                 {result.msg}
                             </div> : ""}
@@ -150,7 +155,7 @@ export default function Login() {
                                     <Button variant='contained' onClick={sendEmailHandle} className="mt-3  btn-primary text-bold w-50">Submit</Button>
                                 </Box>
                             </form>
-                        </Box>
+                        </Component>
                 }
 
 

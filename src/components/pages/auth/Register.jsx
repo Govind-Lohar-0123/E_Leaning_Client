@@ -19,7 +19,11 @@ const style = {
     boxShadow: 24,
     p: 4,
 };
-
+const Component=styled(Box)(({theme})=>({
+    [theme.breakpoints.down("md")]:{
+        width:"85%"
+    }
+}))
 const FormStyle = styled("form")(({ theme }) => ({
     "i": { marginRight: "10px" }
 }))
@@ -48,7 +52,7 @@ export default function Register() {
                 aria-labelledby="modal-modal-title"
                 aria-describedby="modal-modal-description"
             >
-                <Box sx={style} className="p-4">
+                <Component sx={style} className="p-4">
                     {(result.type == true) ? <div className="alert alert-primary" role="alert">
                         {result.msg}
                     </div> : ""}
@@ -74,7 +78,7 @@ export default function Register() {
 
                         <Button variant='contained' onClick={registerHandle} className="mx-auto d-block text-bold w-50">Sign Up</Button>
                     </FormStyle>
-                </Box>
+                </Component>
             </Modal>
         </div>
     );

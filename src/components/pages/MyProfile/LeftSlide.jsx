@@ -6,6 +6,7 @@ import logOut from "../auth/logout";
 import { deleteAccount } from "../auth/userApi";
 import { getUser } from "../auth/userAction";
 
+
 const ListStyle = styled(List)(({ theme }) => ({
     "li": { backgroundColor: "blue" },
     "a": {
@@ -41,6 +42,13 @@ const Wrapper=styled(Box)(({theme})=>({
 export default function LeftSlide({ img }) {
 
     let email = getUser().email;
+    let handleDeleteAccount=()=>{
+        let flag=window.confirm("Are you sure to delete account...");
+        if(flag){
+            deleteAccount(email);
+        }
+        
+    }
     return (
         <>
             <Wrapper className="px-2  pt-4 mx-auto" style={{ height: "100vh",  }} >
@@ -52,7 +60,7 @@ export default function LeftSlide({ img }) {
                         <ListItem><i className="fa-regular text-white  fa-user"></i><Link to="/profile" component={routerLink} > My Profile </Link></ListItem>
                         <ListItem><i className="fa-solid fa-book text-white"></i><Link to="/mycourses" component={routerLink} > My Courses </Link></ListItem>
                         <ListItem><i className="fa-solid text-white fa-right-from-bracket"></i><Link to="/feedback" component={routerLink} >Feedback</Link></ListItem>
-                        <ListItem onClick={() => deleteAccount(email)}><i className="fa-solid text-white fa-right-from-bracket"></i><Link to="#"  >Delete Account</Link></ListItem>
+                        <ListItem onClick={handleDeleteAccount}><i className="fa-solid text-white fa-right-from-bracket"></i><Link to="#"  >Delete Account</Link></ListItem>
                         <ListItem><i className="fa-solid text-white fa-comment"></i><Link to="#" onClick={() => logOut()} >Logout</Link></ListItem>
                     </ListStyle>
                 </Box>
