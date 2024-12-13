@@ -1,4 +1,4 @@
-export let url = "https://e-learning-server-nz5s.onrender.com";
+export let url = "https://e-learning-server-1jj9.onrender.com";
 export let clientUrl= "https://e-learning-client.onrender.com";
 
 
