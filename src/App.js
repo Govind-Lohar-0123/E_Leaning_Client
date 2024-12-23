@@ -16,7 +16,7 @@ import ForgetPassword from './components/pages/auth/ForgetPassword';
 import { Provider } from 'react-redux';
 import store from './components/pages/app/store';
 import { getUser } from './components/pages/auth/userAction';
-// const isLogin = (getToken() == null || getToken() == undefined) ? false : true;
+
 
 import { Navigate } from "react-router-dom";
 import NotFound from './components/pages/partials/NotFound';
