@@ -1,5 +1,6 @@
 export let url = "https://e-learning-server-1jj9.onrender.com";
-export let clientUrl = window.location.hostname;
+export let clientUrl = process.env.REACT_APP_CLIENT_URL || "/";
+
 
 
 export const list1 = [

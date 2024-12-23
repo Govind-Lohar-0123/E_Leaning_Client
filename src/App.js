@@ -21,40 +21,41 @@ import { getUser } from './components/pages/auth/userAction';
 import { Navigate } from "react-router-dom";
 import { clientUrl } from './components/pages/partials/data';
 
+
 let isLogin = getUser();
 
 const router = createBrowserRouter([
   {
-    path: `${clientUrl}/`,
+    path: `/`,
     element: <Layout />,
     children: [
       {
-        path: `${clientUrl}/`,
+        path: `/`,
         element: <Home />
       },
       {
-        path: `${clientUrl}/allCourses`,
+        path: `/allCourses`,
         element: <><Background flag={true} /><AllCourses /></>,
 
       },
       {
-        path: `${clientUrl}/payment-status`,
+        path: `/payment-status`,
         element: <><Background flag={true} /><PaymentStatus /></>,
 
       },
       {
-        path: `${clientUrl}/course-details/:course_id`,
+        path: `/course-details/:course_id`,
         element: <><Background flag={true} /><CourseDetails /></>,
 
       },
       {
-        path: `${clientUrl}/forget-password`,
+        path: `/forget-password`,
         element: (window.localStorage.getItem("email") != undefined) ? <ForgetPassword /> : <Navigate to="/" />
       }
     ]
   },
   {
-    path: `${clientUrl}/`,
+    path: `/`,
     element: (isLogin != null) ? <ProfileLayout /> : <Navigate to="/" />,
     children: [
       {
@@ -73,11 +74,11 @@ const router = createBrowserRouter([
   }
   ,
   {
-    path: `${clientUrl}/watch/:course_id`,
+    path: `/watch/:course_id`,
     element: (isLogin != null) ? <WatchVideo /> : <Navigate to="/" />
 
   }
-])
+], { basename: "/app" })
 
 
 
