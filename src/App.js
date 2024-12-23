@@ -10,7 +10,7 @@ import ProfileLayout from './components/pages/MyProfile/ProfileLayout';
 import MyProfile from './components/pages/MyProfile/MyProfile';
 import Feedback from './components/pages/MyProfile/Feedback';
 import MyCourses from './components/pages/MyProfile/MyCourses';
-import Header from './components/pages/partials/Header';
+
 import WatchVideo from './components/pages/Courses/WatchVideo';
 import ForgetPassword from './components/pages/auth/ForgetPassword';
 import { Provider } from 'react-redux';
@@ -19,41 +19,42 @@ import { getUser } from './components/pages/auth/userAction';
 // const isLogin = (getToken() == null || getToken() == undefined) ? false : true;
 
 import { Navigate } from "react-router-dom";
+import { clientUrl } from './components/pages/partials/data';
 
 let isLogin = getUser();
 
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: `${clientUrl}/`,
     element: <Layout />,
     children: [
       {
-        path: "/",
+        path: `${clientUrl}/`,
         element: <Home />
       },
       {
-        path: "/allCourses",
+        path: `${clientUrl}/allCourses`,
         element: <><Background flag={true} /><AllCourses /></>,
 
       },
       {
-        path: "/payment-status",
+        path: `${clientUrl}/payment-status`,
         element: <><Background flag={true} /><PaymentStatus /></>,
 
       },
       {
-        path: "/course-details/:course_id",
+        path: `${clientUrl}/course-details/:course_id`,
         element: <><Background flag={true} /><CourseDetails /></>,
 
       },
       {
-        path: "/forget-password",
+        path: `${clientUrl}/forget-password`,
         element: (window.localStorage.getItem("email") != undefined) ? <ForgetPassword /> : <Navigate to="/" />
       }
     ]
   },
   {
-    path: "/",
+    path: `${clientUrl}/`,
     element: (isLogin != null) ? <ProfileLayout /> : <Navigate to="/" />,
     children: [
       {
@@ -72,7 +73,7 @@ const router = createBrowserRouter([
   }
   ,
   {
-    path: "/watch/:course_id",
+    path: `${clientUrl}/watch/:course_id`,
     element: (isLogin != null) ? <WatchVideo /> : <Navigate to="/" />
 
   }

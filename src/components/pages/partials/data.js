@@ -1,5 +1,5 @@
 export let url = "https://e-learning-server-1jj9.onrender.com";
-export let clientUrl= "https://e-learning-client.onrender.com";
+export let clientUrl = window.location.hostname;
 
 
 export const list1 = [
