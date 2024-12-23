@@ -19,7 +19,8 @@ import { getUser } from './components/pages/auth/userAction';
 // const isLogin = (getToken() == null || getToken() == undefined) ? false : true;
 
 import { Navigate } from "react-router-dom";
-import { clientUrl } from './components/pages/partials/data';
+import NotFound from './components/pages/partials/NotFound';
+
 
 
 let isLogin = getUser();
@@ -78,7 +79,11 @@ const router = createBrowserRouter([
     element: (isLogin != null) ? <WatchVideo /> : <Navigate to="/" />
 
   }
-], { basename: "/app" })
+  ,{
+    path:"/*",
+    element:<NotFound/>
+  }
+],{basename:"/subdirectory"})
 
 
 
