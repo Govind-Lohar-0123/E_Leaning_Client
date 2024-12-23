@@ -83,7 +83,7 @@ const router = createBrowserRouter([
     path:"/*",
     element:<NotFound/>
   }
-],{basename:"/subdirectory"})
+])
 
 
 
