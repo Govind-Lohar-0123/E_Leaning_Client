@@ -1,4 +1,4 @@
-export let url = "https://e-learning-server-8rok.onrender.com";
+export let url = "e-learning-server-eight.vercel.app";
 export let clientUrl = process.env.REACT_APP_CLIENT_URL || `/${window.location.hostname}`;
 
 
