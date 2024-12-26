@@ -46,7 +46,6 @@ export const list2 = [
     },
 
 ]
-
 export const crs_list = [
     {
         topic_name: "PHP Home",
