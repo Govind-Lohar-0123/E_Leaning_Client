@@ -1,6 +1,6 @@
-// export let url = "e-learning-server-ruddy.vercel.app";
+
 export let url = "https://e-learning-server-z80i.onrender.com";
-export let clientUrl = process.env.REACT_APP_CLIENT_URL || `/${window.location.hostname}`;
+export let clientUrl = `${window.location.origin}`;
 
 
 

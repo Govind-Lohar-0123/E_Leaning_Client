@@ -11,7 +11,6 @@ import { addEmailPassToCookie, getCookie } from './cookieAction.js';
 import { setUser } from './userAction.js';
 import { clientUrl, url as urlPath } from '../partials/data.js';
 import sendEmail from '../emailjs/email.js';
-import { useAuth0 } from '@auth0/auth0-react';
 import { isValidEmail } from './regularExp.js';
 
 const style = {
