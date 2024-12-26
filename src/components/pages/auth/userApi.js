@@ -152,7 +152,7 @@ export async function userForgetPassword(user_data, setResult) {
         })
 
         if (status == 200) {
-            window.location.href = clientUrl;
+            window.location.href = "/"
         }
 
         setResult({ type: true, msg: data.msg });

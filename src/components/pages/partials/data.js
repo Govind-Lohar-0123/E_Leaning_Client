@@ -1,4 +1,5 @@
-export let url = "e-learning-server-ruddy.vercel.app";
+// export let url = "e-learning-server-ruddy.vercel.app";
+export let url = "http://localhost:8000";
 export let clientUrl = process.env.REACT_APP_CLIENT_URL || `/${window.location.hostname}`;
 
 
