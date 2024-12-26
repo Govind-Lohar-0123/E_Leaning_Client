@@ -31,7 +31,7 @@ export default function PaymentStatus() {
                             <div className="mb-3 my-4">
 
                                 <input type="text" placeholder='Enter Order ID' className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
-                                <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
+                                
                             </div>
                             <Button variant='contained' onClick={handlePaymentView} className="mt-3 mx-auto d-block text-bold w-50">View</Button>
                         </form>
