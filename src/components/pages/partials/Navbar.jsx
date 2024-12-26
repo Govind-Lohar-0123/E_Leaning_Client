@@ -86,8 +86,8 @@ export default function Navbar() {
                         <Link to="/" component={routerLink} style={{ textDecoration: "none" }} className="text-white">Home</Link>
                         <Link to="/allcourses" component={routerLink} style={{ textDecoration: "none" }} className="text-white">Courses</Link>
                         <Link to="/payment-status" component={routerLink} style={{ textDecoration: "none" }} className="text-white">Payment Status</Link>
-                        <a href="#contact" className="text-white">Contact</a>
-                        {/* <a href="/#feedback" className="text-white">Feedback</a> */}
+                        <a href="/#contact" className="text-white">Contact</a>
+                      
                     </Toolbar>
                     <Toolbar className="gap-3">
                         {
