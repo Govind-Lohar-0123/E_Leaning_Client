@@ -68,7 +68,7 @@ export async function userLogin(user_data, setResult) {
 
             setUser(data.user);
             setToken(data.token);
-            window.location.href = clientUrl;
+            window.location.href = "/";
 
         }
 
@@ -177,7 +177,7 @@ export async function deleteAccount(email) {
         
         if (status == 200) {
             logOut();
-            window.location.href = clientUrl
+            window.location.href = "/"
         }
 
 
